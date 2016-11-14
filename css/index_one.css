@@ -1,0 +1,256 @@
+
+html {
+    font-size: 62.5%;
+    -ms-touch-action: none; /* 阻止windows Phone 的默认触摸事件 */
+    background-image: url("../img/bj.gif");
+}
+
+body,
+div,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 450px;
+    position: relative;
+    width: 100%;
+    *cursor: default;
+    overflow: hidden;
+    font: 16px/1.5 "Microsoft YaHei", Helvetica, STHeiti STXihei, Microsoft JhengHei, Arial;
+}
+
+#pageContain {
+    position: relative;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.contain {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: relative;
+    z-index: 0;
+}
+
+.current .contain, .slide .contain {
+    display: block;
+}
+
+.current {
+    display: block;
+    z-index: 1;
+}
+
+.slide {
+    display: block;
+    z-index: 2;
+}
+
+.swipe {
+    display: block;
+    z-index: 3;
+    transition-duration: 0ms !important;
+    -webkit-transition-duration: 0ms !important;
+}
+
+.page1 {
+    background-image: url("../img/bj_big.jpg");
+    background-size: cover;
+}
+
+.page2 {
+    background-image: url("../img/bj_big.jpg");
+    background-size: cover;
+}
+
+.page3 {
+    background: #992211;
+}
+
+.page4 {
+    background: #ff00ff;
+}
+
+.page5 {
+    background: #00ff00;
+}
+
+.page6 {
+    background: #22ffff;
+}
+
+#navBar {
+    z-index: 3;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+}
+
+#navBar .active {
+    background: #485356;
+}
+
+#navBar li {
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all .7s ease;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    color: #ecf4d1;
+}
+
+/*自己写的*/
+.music {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    z-index: 6;
+    animation: animation 1s linear infinite;
+
+}
+
+.music_on {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 6;
+}
+
+.rect {
+
+    /*height: 50%;*/
+    width: 60%;
+    margin: 0 auto;
+    /*padding-top: 20%;*/
+    margin-top: 20%;
+    position: relative;
+    transform: scale(0);
+
+
+}
+
+.font_all {
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.font_1 {
+    left: 1rem;
+    top: 1rem;
+}
+
+.font_2 {
+    right: 1rem;
+    top: 1rem;
+}
+
+.font_3 {
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.font_4 {
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.picture {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+
+}
+
+.current .picture {
+    animation: animation 4s ease-in-out infinite;
+
+}
+.current .rect{
+    animation: Opacity 1s linear forwards;
+}
+
+@keyframes Opacity {
+
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0);
+
+
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+/*我写的*/
+p {
+    width: 200px;
+    height: 100px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -50px;
+    opacity: 1;
+    transition: all .8s ease;
+    transform-origin: 50% 50%;
+}
+
+.step1 p {
+    transform: translate(0, -50px);
+    -webkit-transform: translate(0, -50px);
+}
+
+.step2 p {
+    opacity: 0;
+    transform: scale(2);
+    -webkit-transform: scale(2);
+}
+
+.step3 p {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 1;
+}
+
+.step4 p {
+    -webkit-transform: rotate(360deg) translate(0, -200px) scale(.3);
+    transform: rotate(360deg) translate(0, -200px) scale(.3);
+    opacity: 0;
+}
+
